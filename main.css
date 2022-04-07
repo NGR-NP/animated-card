@@ -1,0 +1,111 @@
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+}
+:root{
+    --clr-dark: rgb(13, 17,19);
+    --clr-light: #fff;
+    --clr-accent: rgb(222,52,0);
+    --clr-accent-dark: rgb(163, 38, 0);
+    --clr-secondary: rgb(0,62,163);
+    --br: .5em;
+}
+
+body{
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    background: var(--clr-dark);
+    color: var(--clr-light);
+}
+h1,h2,h3,p{
+    margin: 0;
+}
+img{
+    max-width: 100%;
+}
+.game{
+    position: relative;
+    width: 12.5em;
+}
+.streamers{
+    display: flex;
+
+    
+}
+.streamers .image{
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+    
+}
+.rank{
+    position: absolute;
+    top: 0;
+    right: 1em;
+    font-weight: bold;
+    font-size: 1.115rem;
+    background: rgba(0,0,0,.65);
+    padding: 0.5em .5em .75em;
+    clip-path: polygon(100% 0%,100% 100%, 50% 87%, 0 100%, 0 0);
+}
+.front{
+    transition: 250ms;
+}
+.front .stats{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.front .name{
+    margin: .75em 0;
+}
+.front .streamers img{
+    border: 1px solid var(--clr-dark);
+   
+}
+.front .streamers img:nth-of-type(1){
+    transform: translateX(50%);
+    z-index: 1;
+}
+.front .streamers img:nth-of-type(2){
+    transform: translateX(25%);
+}
+.front .bg{
+    border-radius: var(--br);
+}
+
+.back{
+    display: none;
+}
+
+.background{
+    background-color: #234;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    transform: scale(.2, .9);
+    opacity: 0;
+    border-radius: var(--br);
+}
+.game:hover .background{
+    transition: 
+    transform 200ms cubic-bezier(.21, 1.00,1.00),
+    opacity 100ms linear;
+    ;
+
+    opacity: 1;
+    transform: scale(1.4, 1.2); 
+}
+.game:hover .front{
+    
+    transform: translateY(-30%) scale(.8);
+
+}
+.game:hover .stats{
+    opacity: 0;
+}
